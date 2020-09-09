@@ -1,4 +1,5 @@
 import pygame
+from objects import *
 
 # pyGame essentials
 pygame.init()
@@ -12,42 +13,6 @@ HEIGHT = 960  # screen height
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Pong:The Game')
 
-
-# player object
-class Player():
-    def __init__(self, x, y, width, height, color):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
-        self.color = color
-        self.rect = (x, y, width, height)
-        self.vel = 5
-
-    def draw(self, window):
-        pygame.draw.rect(window, self.color, self.rect)
-
-    # def move(self):
-    #     keys = pygame.key.get_pressed()
-    #     if keys[pygame.K_UP]:
-    #         self.y -= self.vel
-    #     if keys[pygame.K_DOWN]:
-    #         self.y += self.vel
-    #
-
-
-# ball object
-class Ball():
-    def __init__(self, x, y, width, height, color):
-        self.x = x
-        self.y = y
-        self.width = width
-        self.height = height
-        self.color = color
-        self.rect = (x, y, width, height)
-
-    def draw(self, window):
-        pygame.draw.rect(window, self.color, self.rect)
 
 white = (255,255,255)
 # creating game obj
@@ -75,7 +40,7 @@ def main():
                 run = False
                 pygame.quit()
 
-        redrawWindow(WINDOW)
+        redrawWindow(WINDOW, ball, player, opponent)
 
 
 main()
