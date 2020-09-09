@@ -1,4 +1,3 @@
-import pygame
 from objects import *
 
 # pyGame essentials
@@ -22,7 +21,7 @@ opponent = Player(10, HEIGHT / 2 - 70, 10, 120, white)
 
 def redrawWindow(b, p1, p2):
     WINDOW.fill((51, 51, 51))
-    pygame.draw.aaline(WINDOW, white, (WIDTH/2, 0), (WIDTH/2, HEIGHT) )
+    pygame.draw.aaline(WINDOW, white, (WIDTH / 2, 0), (WIDTH / 2, HEIGHT))
     b.draw(WINDOW)
     p1.draw(WINDOW)
     p2.draw(WINDOW)
