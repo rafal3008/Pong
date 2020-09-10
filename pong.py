@@ -3,10 +3,6 @@ from objects import *
 # pyGame essentials
 pygame.init()
 clock = pygame.time.Clock()
-# game constants
-FPS = 60
-WIDTH = 1280  # screen width
-HEIGHT = 800  # screen height
 
 # main window
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
@@ -41,6 +37,8 @@ def main():
 
         player.move()
         ball.move()
+        if check_collision_player(ball, player) or check_collision_opponent(ball, opponent):
+            ball.collide()
         redrawWindow(ball, player, opponent)
 
 
