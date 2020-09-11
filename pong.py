@@ -1,4 +1,5 @@
 from objects import *
+from utility import *
 
 # pyGame essentials
 pygame.init()
@@ -8,20 +9,11 @@ clock = pygame.time.Clock()
 WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Pong:The Game')
 
-white = (255, 255, 255)
+
 # creating game obj
 ball = Ball(WIDTH / 2 - 15, HEIGHT / 2 - 15, 30, 30, white)
 player = Player(WIDTH - 20, HEIGHT / 2 - 70, 10, 120, white)
 opponent = Player(10, HEIGHT / 2 - 70, 10, 120, white)
-
-
-def redrawWindow(b, p1, p2):
-    WINDOW.fill((51, 51, 51))
-    pygame.draw.aaline(WINDOW, white, (WIDTH / 2, 0), (WIDTH / 2, HEIGHT))
-    b.draw(WINDOW)
-    p1.draw(WINDOW)
-    p2.draw(WINDOW)
-    pygame.display.update()
 
 
 def main():
@@ -39,7 +31,7 @@ def main():
         ball.move()
         if check_collision_player(ball, player) or check_collision_opponent(ball, opponent):
             ball.collide()
-        redrawWindow(ball, player, opponent)
+        redrawWindow(WINDOW, ball, player, opponent)
 
 
 main()

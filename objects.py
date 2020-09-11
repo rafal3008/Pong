@@ -1,9 +1,6 @@
 import pygame
+from utility import WIDTH, HEIGHT
 
-# game constants
-FPS = 60  # game speed
-WIDTH = 1280  # screen width
-HEIGHT = 800  # screen height
 
 
 class GameObject():
@@ -72,12 +69,13 @@ class Ball(GameObject):
         self.vel_x *= -1
 
 
-# bardziej skomplikowanie się nie dało xd, trzeba sprawdzić co nie działa w bibl. Sprite
-def check_collision_player(b, p):
-    if b.x + b.width == p.x and b.y >= p.y and (b.y + b.height) <= (p.y + p.height):
-        return True
+class Opponent(GameObject):
+    def __init__(self, x, y, width, height, color, vel):
+        super().__init__(x, y, width, height, color)
+        self.vel = vel
+
+    def move(self, obj):
+        pass
 
 
-def check_collision_opponent(b, op):
-    if b.x == op.x + op.width and b.y >= op.y and (b.y + b.height) <= (op.y + op.height):
-        return True
+
