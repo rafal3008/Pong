@@ -37,4 +37,3 @@ def check_collision_opponent(b, op):
     if b.x == op.x + op.width and b.y >= op.y and (b.y + b.height) <= (op.y + op.height):
         return True
 
-
