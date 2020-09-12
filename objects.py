@@ -70,6 +70,11 @@ class Ball(GameObject):
         if self.x <= 0 or self.x + self.width >= WIDTH:
             return True
 
+    def reset_pos(self):
+        self.x = WIDTH / 2 - 15
+        self.y = HEIGHT / 2 - 15
+        self.update()
+
 
 class Opponent(GameObject):
     def __init__(self, x, y, width, height, color, vel):
